@@ -1,15 +1,14 @@
 var alarm = [{name:'alarm1',time:(Date.now()+ 2000),sound:'3'},{name:'alarm2',time:(Date.now()+ 6000),sound:'4'}];
 
-Array.prototype.check = function (arr){
-    for(var i = 0; i <arr.length; i++)
-    for (key in arr[i])
-        if (((arr[i].time > Date.now()) && (arr[i].time < (Date.now()+800))))
-        return (arr[i].name);
+Array.prototype.check = function (){
+    for(var i = 0; i <this.length; i++)
+        if ((this[i].time > Date.now()) && (this[i].time < (Date.now()+800)))
+        return (this[i].name);
 }
 
 function task(){
-    if ((Array.prototype.check(alarm)))
-        document.getElementById(Array.prototype.check(alarm)).innerHTML = (Array.prototype.check(alarm));
+    if (alarm.check())
+        document.getElementById(alarm.check()).innerHTML = (alarm.check());
 t = setTimeout('task()',500);
 startTime()
 }
